@@ -1,3 +1,7 @@
+/*
+11/01 testing this again :(
+ */
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -8,20 +12,16 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @TeleOp
 
 public class FirstClass extends LinearOpMode {
-    private DcMotor dtFR = null;
-    private DcMotor dtFL = null;
-    private DcMotor dtBR = null;
-    private DcMotor dtBL = null;
     double tgtPower = 0;
 
     @Override
 
     public void runOpMode(){
 
-        dtFR = hardwareMap.get(DcMotor.class, "dtFR");
-        dtFL = hardwareMap.get(DcMotor.class, "dtFL");
-        dtBR = hardwareMap.get(DcMotor.class, "dtBR");
-        dtBL = hardwareMap.get(DcMotor.class, "dtBL");
+        DcMotor dtFR = hardwareMap.get(DcMotor.class, "dtFR");
+        DcMotor dtFL = hardwareMap.get(DcMotor.class, "dtFL");
+        DcMotor dtBR = hardwareMap.get(DcMotor.class, "dtBR");
+        DcMotor dtBL = hardwareMap.get(DcMotor.class, "dtBL");
 
         dtFR.setDirection(DcMotorSimple.Direction.REVERSE);
         dtBR.setDirection(DcMotorSimple.Direction.REVERSE);
