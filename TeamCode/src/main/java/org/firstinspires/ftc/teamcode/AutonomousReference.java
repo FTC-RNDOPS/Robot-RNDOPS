@@ -7,7 +7,7 @@
 
 @Autonomous(name="Robot: Auto Drive By Encoder", group="Robot")
 
-public class AutonomousReferance extends LinearOpMode {
+public class AutonomousReference extends LinearOpMode {
 
     /* Declare OpMode members. */
     private DcMotor leftFrontDrive = null;
