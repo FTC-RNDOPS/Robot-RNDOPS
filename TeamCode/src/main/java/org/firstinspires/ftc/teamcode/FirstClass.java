@@ -1,5 +1,7 @@
 /*
 11/01 testing this again :(
+things to do:
+11/10 Need to add stuff for turning and strafing....
  */
 
 package org.firstinspires.ftc.teamcode;
