@@ -49,4 +49,4 @@ public class FirstClass extends LinearOpMode {
 // connect to robot wifi,
 // cd Desktop/platform-tools
 // ./adb connect 192.168.42.1
-// adb devices
+// adb devices.
