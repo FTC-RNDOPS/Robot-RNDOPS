@@ -13,7 +13,6 @@ public class MechanumCode extends LinearOpMode {
         private DcMotor dtFL = null;
         private DcMotor dtBR = null;
         private DcMotor dtBL = null;
-        private DcMotor motor = null;
         double dtFLPwr = 0;
         double dtBRPwr = 0;
         double dtBLPwr = 0;
@@ -21,8 +20,8 @@ public class MechanumCode extends LinearOpMode {
         double x = 0;
         double y = 0;
         double rotX = 0;
-        boolean liftPower = false;
-        double halfSpeed = 0;
+
+
 
         @SuppressLint("SuspiciousIndentation")
         @Override
@@ -45,8 +44,10 @@ public class MechanumCode extends LinearOpMode {
             dtFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             //motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-            dtFR.setDirection(DcMotorSimple.Direction.REVERSE);
-            dtBR.setDirection(DcMotorSimple.Direction.REVERSE);
+            dtBL.setDirection(DcMotorSimple.Direction.REVERSE);
+           // dtBR.setDirection(DcMotorSimple.Direction.REVERSE);
+            dtFL.setDirection(DcMotorSimple.Direction.REVERSE);
+            //dtFR.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
             telemetry.addData("Status", "Initialized");
