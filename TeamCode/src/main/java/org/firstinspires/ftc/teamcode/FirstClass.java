@@ -14,18 +14,8 @@ public class FirstClass<motor, frPos> extends LinearOpMode {
     private DcMotor dtFL = null;
     private DcMotor dtBR = null;
     private DcMotor dtBL = null;
-    //private DcMotor motor = null;
     double tgtPower = 0;
     double turnPower = 0;
-    boolean liftPower = false;
-    double halfSpeed = 0;
-   // private int frPos;
-   // private int flPos;
-   // private int brPos;
-    //private int blPos;
-   // private int motorPos;
-
-
 
     @SuppressLint("SuspiciousIndentation")
     @Override
@@ -41,26 +31,17 @@ public class FirstClass<motor, frPos> extends LinearOpMode {
         dtBR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         dtFL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         dtFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //motor  = hardwareMap.get(DcMotor.class, "dcMotor");
 
         dtBL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         dtBR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         dtFL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         dtFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        //motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         dtFR.setDirection(DcMotorSimple.Direction.REVERSE);
         dtBR.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        //flPos = 0;
-        //frPos = 0;
-       // blPos = 0;
-       // brPos = 0;
-       // motorPos = 0;
-
         telemetry.addData("Status", "Initialized");
         telemetry.update();
-
 
         //Nothing after this line happens until you press play on the driver station.
         waitForStart();
@@ -77,29 +58,10 @@ public class FirstClass<motor, frPos> extends LinearOpMode {
             telemetry.addData("motor power", dtFR.getPower());
             telemetry.addData("Status", "Running");
             telemetry.update();
-            //start of code attempt for "lifter Motor"
-           // liftPower = this.gamepad1.a;
-           // if (liftPower == true) {
-               // motor.setPower(1.0);
-            //}
-            //^^^I hope this works???? Taking a shot in the dark here!
-            //start of code attempt for 50% reduced speed.
-            halfSpeed = this.gamepad1.right_trigger;
-            if (halfSpeed > 0.1) {
-                dtFR.setPower(tgtPower/2-turnPower/2);
-                dtFL.setPower(tgtPower/2+turnPower/2);
-                dtBR.setPower(tgtPower/2-turnPower/2);
-                dtBL.setPower(tgtPower/2+turnPower/2);
-
             }
-
-
-
-
-
         }
     }
-}
+
 // connect to robot wifi,
 // cd Desktop/platform-tools
 // ./adb connect 192.168.42.1

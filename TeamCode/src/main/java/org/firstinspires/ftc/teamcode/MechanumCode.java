@@ -21,34 +21,27 @@ public class MechanumCode extends LinearOpMode {
         double y = 0;
         double rotX = 0;
 
-
-
         @SuppressLint("SuspiciousIndentation")
         @Override
+
         public void runOpMode() {
             dtFR = hardwareMap.get(DcMotor.class, "dtFR");
             dtFL = hardwareMap.get(DcMotor.class, "dtFL");
             dtBR = hardwareMap.get(DcMotor.class, "dtBR");
             dtBL = hardwareMap.get(DcMotor.class, "dtBL");
-            //motor  = hardwareMap.get(DcMotor.class, "dcMotor");
 
             dtBL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             dtBR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             dtFL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             dtFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             dtBL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             dtBR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             dtFL.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             dtFR.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            //motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             dtBL.setDirection(DcMotorSimple.Direction.REVERSE);
-           // dtBR.setDirection(DcMotorSimple.Direction.REVERSE);
             dtFL.setDirection(DcMotorSimple.Direction.REVERSE);
-            //dtFR.setDirection(DcMotorSimple.Direction.REVERSE);
-
 
             telemetry.addData("Status", "Initialized");
             telemetry.update();
@@ -58,7 +51,7 @@ public class MechanumCode extends LinearOpMode {
             while(opModeIsActive()){
                 double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rotX), 1);
                 y = -gamepad1.left_stick_y;
-                x = gamepad1.right_stick_x * 1.1;// 1.1 counteracts "imperfect strafing" will look into l8r
+                x = gamepad1.right_stick_x * 1.1;
                 rotX = gamepad1.left_stick_x;
 
                 dtBLPwr = (y + x - rotX) / denominator;
@@ -70,7 +63,6 @@ public class MechanumCode extends LinearOpMode {
                 dtBR.setPower(dtBRPwr);
                 dtFL.setPower(dtFLPwr);
                 dtFR.setPower(dtFRPwr);
-
             }
         }
     }

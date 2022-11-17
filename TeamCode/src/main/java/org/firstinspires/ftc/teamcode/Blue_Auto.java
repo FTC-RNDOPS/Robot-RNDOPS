@@ -19,18 +19,17 @@ public class Blue_Auto extends LinearOpMode  {
 
     @SuppressLint("SuspiciousIndentation")
     @Override
+
     public void runOpMode() {
         dtFR = hardwareMap.get(DcMotor.class, "dtFR");
         dtFL = hardwareMap.get(DcMotor.class, "dtFL");
         dtBR = hardwareMap.get(DcMotor.class, "dtBR");
         dtBL = hardwareMap.get(DcMotor.class, "dtBL");
-        //motor  = hardwareMap.get(DcMotor.class, "dcMotor");
 
         dtBL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         dtBR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         dtFL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         dtFR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         dtBL.setDirection(DcMotorSimple.Direction.REVERSE);
         dtFL.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -45,8 +44,6 @@ public class Blue_Auto extends LinearOpMode  {
         dtFL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         dtFR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-
-
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
@@ -58,9 +55,6 @@ public class Blue_Auto extends LinearOpMode  {
             dtFR.setPower(0.5);
             dtBL.setPower(0.5);
             dtBR.setPower(0.5);
-
-
         }
-
     }
 }
