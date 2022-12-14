@@ -13,13 +13,22 @@ public class MechanumCode extends LinearOpMode {
         private DcMotor dtFL = null;
         private DcMotor dtBR = null;
         private DcMotor dtBL = null;
+        // Define "Regular" Motor Speeds
         double dtFLPwr = 0;
         double dtBRPwr = 0;
         double dtBLPwr = 0;
         double dtFRPwr = 0;
+        // Define "Sprint Mode" Motor Speeds
+        double dtFLPwrSprint = 0;
+        double dtBRPwrSprint = 0;
+        double dtBLPwrSprint = 0;
+        double dtFRPwrSprint = 0;
+        // Define Movement Axies
         double x = 0;
         double y = 0;
         double rotX = 0;
+        // Sprint Mode Var
+        float SprintMode = false;
 
         @SuppressLint("SuspiciousIndentation")
         @Override
@@ -59,11 +68,33 @@ public class MechanumCode extends LinearOpMode {
                 dtFLPwr = (y + x + rotX) / denominator;
                 dtFRPwr = (y - x - rotX) / denominator;
 
-                dtBL.setPower(dtBLPwr);
-                dtBR.setPower(dtBRPwr);
-                dtFL.setPower(dtFLPwr);
-                dtFR.setPower(dtFRPwr);
+                dtBLPwrSprint = ((y + x - rotX) / denominator)*2;
+                dtBRPwrSprint = ((y + x - rotX) / denominator)*2;
+                dtFLPwrSprint = ((y + x - rotX) / denominator)*2;
+                dtBRPwrSprint = ((y + x - rotX) / denominator)*2;
+
+                if (SprintMode == true) {
+                    dtBL.setPower(dtBLPwrSprint)
+                    dtBR.setPower(dtBRPwrSprint);
+                    dtFL.setPower(dtFLPwrSprint);
+                    dtFR.setPower(dtFRPwrSprint);
+                    telemetry.addData("dtBL Current Pwr:", dtBLPwrSprint);
+                    telemetry.addData("dtBR Current Pwr:", dtBRPwrSprint);
+                    telemetry.addData("dtFL Current Pwr:", dtFLPwrSprint);
+                    telemetry.addData("dtFR Current Pwr:", dtFRPwrSprint);
+                } else {
+                    dtBL.setPower(dtBLPwr);
+                    dtBR.setPower(dtBRPwr);
+                    dtFL.setPower(dtFLPwr);
+                    dtFR.setPower(dtFRPwr);
+                    telemetry.addData("dtBL Current Pwr:", dtBLPwr);
+                    telemetry.addData("dtBR Current Pwr:", dtBRPwr);
+                    telemetry.addData("dtFL Current Pwr:", dtFLPwr);
+                    telemetry.addData("dtFR Current Pwr:", dtFRPwr);
+                }
+                telemetry.addData("dtBL Current Pwr:", dtBLPwr);
+                telemetry.addDate("Sprint Mode Status",SprintMode;)
+                telemetry.update();
             }
         }
     }
-
