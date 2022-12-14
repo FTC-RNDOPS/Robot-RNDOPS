@@ -63,6 +63,13 @@ public class MechanumCode extends LinearOpMode {
                 x = gamepad1.right_stick_x * 1.1;
                 rotX = gamepad1.left_stick_x;
 
+                if (gamepad1.right_bumper) {
+                    SprintMode = true
+                } 
+                if (gamepad1.left_bumper) {
+                    SprintMode = false
+                }
+
                 dtBLPwr = (y + x - rotX) / denominator;
                 dtBRPwr = (y - x + rotX) / denominator;
                 dtFLPwr = (y + x + rotX) / denominator;
