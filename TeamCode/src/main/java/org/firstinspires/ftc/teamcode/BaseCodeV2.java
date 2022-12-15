@@ -30,11 +30,14 @@ public class MechanumCode extends LinearOpMode {
         double rotX = 0;
         // Sprint Mode Var
         boolean SprintMode = false;
-        // End Of Arm Up And Down
+        // Elevator Up And Down
         boolean ElevatorDown = false;
         boolean ElevatorUp = false;
         int ElevatorPos = 0;
         int MaxElevatorPos = 10;
+        // End Of Arm Tool
+        boolean EOATGripping = false;
+        int MaxEOATGrip = 10;
 
         @SuppressLint("SuspiciousIndentation")
         @Override
@@ -68,6 +71,16 @@ public class MechanumCode extends LinearOpMode {
             waitForStart();
 
             while(opModeIsActive()){
+                
+                // ============== End Of Arm Tool Code ============== //
+
+                if (gamepad1.right_trigger & !(gamepad1.left_trigger)) {
+                    EOATGripping = true;
+                }
+                if (gamepad1.left_trigger & !(gamepad1.right_trigger)) {
+                    EOATGripping = false;
+                }
+                
 
                 // ============== Elevator Code ============== //
 
