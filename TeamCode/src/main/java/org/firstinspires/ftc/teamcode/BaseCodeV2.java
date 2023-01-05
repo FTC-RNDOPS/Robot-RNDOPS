@@ -47,7 +47,7 @@ public class MechanumCode extends LinearOpMode {
             dtFL = hardwareMap.get(DcMotor.class, "dtFL");
             dtBR = hardwareMap.get(DcMotor.class, "dtBR");
             dtBL = hardwareMap.get(DcMotor.class, "dtBL");
-            Elevator = hardwareMap.get(DcMotor.class, "Elevator");
+            Elevator = hardwareMap.get(DcMotor.class, "Feeder");
 
             dtBL.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             dtBR.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
